@@ -1,0 +1,38 @@
+/* --- THÊM PHẦN NÀY VÀO TRONG THẺ <style> CỦA BẠN --- */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các mục xuống dòng */
+    justify-content: center;
+    gap: 15px; /* Khoảng cách giữa các mục */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #eee; /* Đường phân cách tinh tế */
+}
+
+.gallery-item {
+    width: calc(50% - 15px); /* 2 cột trên màn hình lớn */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--section-bg);
+}
+
+.gallery-item img, .gallery-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Điều chỉnh Video player gọn hơn */
+.gallery-item video {
+    max-height: 250px; 
+}
+
+/* Mobile Responsive cho Gallery */
+@media screen and (max-width: 600px) {
+    .gallery-item {
+        width: 100%; /* 1 cột trên điện thoại */
+    }
+}

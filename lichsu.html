@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo STEM: Mô Hình Lăng Chủ Tịch Hồ Chí Minh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B2323; /* Màu đỏ đô trầm - trang nghiêm */
+            --accent-color: #D4AF37; /* Màu vàng kim - sang trọng */
+            --bg-color: #FAFAFA; /* Màu kem nhạt - nền nã */
+            --text-color: #333333;
+            --section-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://upload.wikimedia.org/wikipedia/commons/e/e6/Ho_Chi_Minh_Mausoleum_-_Hanoi.jpg'); /* Ảnh minh họa Lăng Bác */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 15px 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--section-bg);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "❖";
+            display: block;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-top: 10px;
+        }
+
+        /* --- Table Styling --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        /* Thêm CSS phân biệt hàng chẵn/lẻ */
+        table tbody tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* --- Content Styling --- */
+        .content-block h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .content-block ul {
+            list-style-position: inside;
+            margin-left: 15px;
+        }
+
+        .content-block ul li {
+            margin-bottom: 8px;
+        }
+        
+        /* --- CSS CHO GALLERY ẢNH/VIDEO (PHẦN MỚI) --- */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            gap: 15px; 
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #eee; 
+        }
+
+        .gallery-item {
+            width: calc(50% - 15px); /* 2 cột trên màn hình lớn */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--section-bg);
+        }
+
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .gallery-item video {
+            max-height: 250px; 
+        }
+        /* --- KẾT THÚC CSS GALLERY --- */
+
+
+        /* --- Timeline History Style --- */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .timeline-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-container::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+            .left::after, .right::after { left: 21px; }
+            .right { left: 0%; }
+            header h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; text-align: center; }
+            nav ul li { margin: 10px 0; }
+            
+            /* Mobile cho Gallery */
+            .gallery-item {
+                width: 100%; 
+            }
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.3rem; /* Tăng cỡ chữ cho trích dẫn */
+            color: var(--primary-color); /* Dùng màu đỏ đô để nổi bật */
+            font-family: 'Playfair Display', serif; /* Dùng font Playfair cho trích dẫn */
+            margin: 20px 0;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Báo Cáo Sản Phẩm STEM</h1>
+        <p>Mô Hình Lăng Chủ Tịch Hồ Chí Minh</p>
+        <p style="font-size: 1rem; margin-top: 10px;">Nhóm môn Lịch sử & Địa lí</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#thong-tin">Thông Tin Chung</a></li>
+            <li><a href="#bao-cao">Báo Cáo STEM</a></li>
+            <li><a href="#tieu-su">Tiểu Sử Bác Hồ</a></li>
+            <li><a href="#ket-luan">Kết Luận</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <section id="thong-tin">
+            <h2 class="section-title">Thông Tin Dự Án</h2>
+            <div class="content-block">
+                <p><strong>Dự án:</strong> Mô hình Lăng Chủ Tịch Hồ Chí Minh</p>
+                <p><strong>Phân môn:</strong> Lịch sử</p>
+                
+                <h3>Thành viên thực hiện</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>TT</th>
+                            <th>Họ và tên</th>
+                            <th>Vai trò / Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Phạm Thị Tươi</td><td>GV hướng dẫn</td></tr>
+                        <tr><td>2</td><td>Hoàng Văn Tầm</td><td>GV hướng dẫn</td></tr>
+                        <tr><td>3</td><td>Hoàng Thị Hồng Nhung (9A2)</td><td>Thành viên</td></tr>
+                        <tr><td>4</td><td>Nguyễn Phương Anh (9A2)</td><td>Thành viên</td></tr>
+                        <tr><td>5</td><td>Hoàng Thế Đạt (9A2)</td><td>Thành viên</td></tr>
+                        <tr><td>6</td><td>Nguyễn Khánh Huyền (9A2)</td><td>Thành viên</td></tr>
+                        <tr><td>7</td><td>Hoàng Hà Thanh (9A2)</td><td>Thành viên</td></tr>
+                        <tr><td>8</td><td>Hoàng Thu Thuyến (9A2)</td><td>Thành viên</td></tr>
+                        <tr><td>9</td><td>Phạm Hà Trang (9A1)</td><td>Thành viên</td></tr>
+                    </tbody>
+                </table>
+                
+                <h3>Hình ảnh & Video Quá trình Chế tạo</h3>
+                <p style="text-align: center; font-style: italic; color: #777;">Tư liệu trực quan về các bước nghiên cứu và lắp ráp mô hình.</p>
+                
+                <div class="gallery">
+                    
+                    <div class="gallery-item">
+                        <img src="A9CF78BB-4C73-46D6-ACD5-53A83FDD66DE.jpeg" alt="Lắp ráp mô hình STEM">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="07CEE7ED-38D1-4824-8B75-A8930C0EE17B.jpeg" alt="Cả nhóm làm việc">
+                    </div>
+
+                    <div class="gallery-item" style="width: 100%;">
+                        <video controls preload="none">
+                            <source src="IMG_1502.MP4" type="video/quicktime">
+                            Trình duyệt của bạn không hỗ trợ video này.
+                        </video>
+                        <p style="padding: 10px; text-align: center; font-size: 0.9rem;">Video: Quá trình sơn và lắp ráp chi tiết.</p>
+                    </div>
+                    
+                </div>
+                </div>
+        </section>
+
+        <section id="bao-cao">
+            <h2 class="section-title">Chi Tiết Sản Phẩm STEM</h2>
+            
+            <div class="content-block">
+                <h3>1. Lý do chọn đề tài</h3>
+                <p>Lăng Chủ tịch Hồ Chí Minh là công trình có ý nghĩa lịch sử – văn hóa đặc biệt. Dự án giúp học sinh:</p>
+                <ul>
+                    <li>Tìm hiểu giá trị lịch sử, kiến trúc, ý nghĩa biểu tượng.</li>
+                    <li>Rèn luyện tư duy sáng tạo, kỹ năng thiết kế – lắp ráp.</li>
+                    <li>Ứng dụng kiến thức liên môn STEM tạo sản phẩm giáo dục, mỹ thuật.</li>
+                </ul>
+
+                <h3>2. Quy trình thực hiện</h3>
+                <p><strong>Bước 1: Tìm hiểu & Nghiên cứu.</strong> Thu thập hình ảnh, kích thước, phân tích cấu trúc (bậc tam cấp, thân lăng, mái, cột...).</p>
+                <p><strong>Bước 2: Lên bản vẽ thiết kế.</strong> Phác thảo hình dạng, tỷ lệ. Xác định vật liệu (bìa carton, ống hút, giấy màu...).</p>
+                <p><strong>Bước 3: Chế tạo khung.</strong> Cắt bìa carton tạo khung thân và bậc tam cấp. Dùng ống hút làm cột trang trí.</p>
+                <p><strong>Bước 4: Hoàn thiện chi tiết.</strong> Dán giấy, sơn màu giống kiến trúc thật. Cố định bằng keo nến.</p>
+                <p><strong>Bước 5: Kiểm tra.</strong> Chỉnh sửa độ vững, tính thẩm mỹ và các chi tiết biểu tượng.</p>
+
+                <h3>3. Kiến thức tích hợp</h3>
+                <ul>
+                    <li><span class="highlight">Lịch sử:</span> Tìm hiểu về Bác và Lăng Bác.</li>
+                    <li><span class="highlight">Mỹ thuật:</span> Phối màu, tạo hình, thiết kế.</li>
+                    <li><span class="highlight">Toán học:</span> Tính tỷ lệ, đo đạc hình học.</li>
+                    <li><span class="highlight">Công nghệ/Kỹ thuật:</span> Lắp ráp, kỹ thuật dán ghép.</li>
+                    <li><span class="highlight">Vật lý:</span> Kết cấu chịu lực.</li>
+                    <li><span class="highlight">Tin học:</span> Công cụ số, mã QR.</li>
+                </ul>
+
+                <h3>4. Hướng dẫn sử dụng & Bảo quản</h3>
+                <ul>
+                    <li>Trưng bày nơi khô ráo, tránh ánh nắng trực tiếp.</li>
+                    <li>Di chuyển bằng cách cầm vào phần đế.</li>
+                    <li>Sử dụng làm đồ dùng dạy học (Lịch sử, Địa lí) hoặc trưng bày ngày hội STEM.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tieu-su">
+            <h2 class="section-title">Cuộc Đời & Sự Nghiệp Chủ Tịch Hồ Chí Minh</h2>
+            <div class="quote">
+                "Tôi chỉ có một sự ham muốn, ham muốn tột bậc, là làm sao cho nước ta được hoàn toàn độc lập, dân ta được hoàn toàn tự do, đồng bào ai cũng có cơm ăn áo mặc, ai cũng được học hành."
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>19/05/1890</h3>
+                        <p>Người sinh ra tại làng Kim Liên, huyện Nam Đàn, tỉnh Nghệ An. Tên khai sinh là Nguyễn Sinh Cung, sau này đi học lấy tên là Nguyễn Tất Thành.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>05/06/1911</h3>
+                        <p>Tại bến cảng Nhà Rồng, người thanh niên Nguyễn Tất Thành ra đi tìm đường cứu nước, bắt đầu hành trình bôn ba qua nhiều châu lục.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>03/02/1930</h3>
+                        <p>Tại Cửu Long (Hương Cảng, Trung Quốc), Người chủ trì Hội nghị hợp nhất các tổ chức cộng sản, thành lập Đảng Cộng sản Việt Nam.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>02/09/1945</h3>
+                        <p>Tại Quảng trường Ba Đình, Người đọc bản <strong>Tuyên ngôn Độc lập</strong>, khai sinh ra nước Việt Nam Dân chủ Cộng hòa.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>1945 - 1969</h3>
+                        <p>Người đảm nhiệm trọng trách Chủ tịch nước, lãnh đạo nhân dân kháng chiến chống thực dân Pháp và đế quốc Mỹ, xây dựng chủ nghĩa xã hội ở miền Bắc.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>02/09/1969</h3>
+                        <p>Chủ tịch Hồ Chí Minh qua đời tại Hà Nội, để lại niềm tiếc thương vô hạn cho toàn thể dân tộc và bạn bè quốc tế.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sản phẩm STEM - Nhóm môn Lịch sử & Địa lí.</p>
+        <p>Thực hiện bởi tập thể lớp 9A2.</p>
+    </footer>
+
+</body>
+</html>
